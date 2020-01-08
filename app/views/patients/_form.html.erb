@@ -1,0 +1,20 @@
+<h2 class="largeHeader">Appointments</h2>
+
+<%= form_with(model: patient, local: true) do |form|%>
+  <% if patient.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(patient.errors.count, "error") %> prohibited this user from being saved:</h>
+      <ul>
+        <% patient.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.select :name, options_from_collection_for_select(Patient.all, "id", "name")%>
+  </div>
+
+  <%=form.submit "submit", class: "btn btn-primary"%>
+<% end %>

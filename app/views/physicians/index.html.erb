@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>Physicians</h2>
+  <%= link_to "New", new_physician_path %><br>
+  <%= will_paginate @physician, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Physician Name</th>
+
+        <th colspan="3">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @physicians.each do |physician| %>
+      <tr>
+        <td><%= physician.name %></td>
+
+        <td><%= link_to "Show",  physician_path(physician.id) %></td>
+        <td><%= link_to "Edit",  edit_physician_path(physician.id) %></td>
+        <td><%= link_to "Destroy", physician, method: :delete, data: { confirm: 'Are you sure?' } %></td> 
+      </tr>
+      <%end%>
+    </tbody>
+  </table>
+</div>

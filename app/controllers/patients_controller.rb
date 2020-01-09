@@ -53,6 +53,6 @@ class PatientsController < ApplicationController
   end
 
   def patient_params
-    params.require(:patient).permit(:name)
+    params.require(:patient).permit(:name, :patient_id)
   end
 end

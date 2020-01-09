@@ -1,4 +1,4 @@
-<h2 class="largeHeader">Appointments</h2>
+<h2 class="largeHeader">Physicians</h2>
 
 <%= form_with(model: physician, local: true) do |form|%>
   <% if physician.errors.any? %>
@@ -13,7 +13,7 @@
   <% end %>
   <div class="form-group">
     <%= form.label :name %>
-    <%= form.select :name, options_from_collection_for_select(Physician.all, "id", "name")%>
+    <%= form.text_field :name%>
   </div>
 
   <%=form.submit "submit", class: "btn btn-primary"%>

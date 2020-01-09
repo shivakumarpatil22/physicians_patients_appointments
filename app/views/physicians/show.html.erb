@@ -1,5 +1,13 @@
 <p><%= notice %></p>
 <p> Physician Name: <%=@physician.name %></p>
+<% @physician.appointments.each do |appointment| %>
+<p> Appointment ID: <%=appointment.id %></p>
+<% end %>
+
+<% @physician.patients.each do |patient| %>
+<p> Patient Name: <%=patient.name %></p>
+<% end %>
+
 
 
 <%= link_to "Back to Physicians List", physicians_path %><br>

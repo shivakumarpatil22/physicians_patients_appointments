@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-10.times { Physician.create(name:Faker::Name.name) }
-10.times { Patient.create(name:Faker::Name.name)}
-10.times { |i| Appointment.create(physician_id: "PHY_000#{i+1}", patient_id:"PAT_000#{i+1}")}
+10.times do |i|
+  physician = Physician.create(name:Faker::Name.name)
+  patient = Patient.create(name:Faker::Name.name)
+  Appointment.create(physician_id:physician.id, patient_id:patient.id)
+end  

@@ -20,5 +20,10 @@
     <%= form.select :patient_id, options_from_collection_for_select(Patient.all, "id", "name")%>
   </div>
 
+  <div class="form-group">
+    <%= form.label :appointment_date %>
+    <%= form.datetime_select :appointment_date%>
+  </div>
+
   <%=form.submit "submit", class: "btn btn-primary"%>
 <% end %>
